@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Swap Visualizer | Random Numbers Generator</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-mc-light navbar-dark p-0">
+        <div class="container">
+            <a href="index.html" class="navbar-brand py-3">Push Swap Visualizer</a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#psnav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="psnav" >
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="index.html" class="btn nav-button">Home</a></li>
+                    <li class="nav-item"><a href="random.html" class="btn nav-button">Random Numbers</a></li>
+                    <li class="nav-item"><a href="about.html" class="btn nav-button">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="col-12 mt-2">
+            <div class="card">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="consecutive_rand" data-bs-toggle="tab" data-bs-target="#nav-order_rand" type="button" role="tab" aria-controls="order_rand" aria-selected="true">Consecutive</button>
+                        <button class="nav-link" id="random_rand" data-bs-toggle="tab" data-bs-target="#nav-random_rand" type="button" role="tab" aria-controls="random_rand" aria-selected="false">Random</button>
+                    </div>
+                </nav>
+                <div class="tab-content p-3" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-order_rand" role="tabpanel" aria-labelledby="order_rand">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="flex-grow-1 input-group mb-3">
+                                    <span class="input-group-text">Min</span>
+                                    <input type="number" id="rand_min" class="form-control" value="1" placeholder="1">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="flex-grow-1 input-group mb-3">
+                                    <span class="input-group-text">Max</span>
+                                    <input type="number" id="rand_max" class="form-control" value="20" placeholder="20">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show" id="nav-random_rand" role="tabpanel" aria-labelledby="random_rand">
+                        <div class="col-12">
+                            <div class="flex-grow-1 input-group mb-3">
+                                <span class="input-group-text">Quantity</span>
+                                <input type="number" id="rand_quantity" class="form-control" value="20" placeholder="20">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-2">
+            <div class="card">
+                <div class="card-header text-white">
+                    Result
+                </div>
+                <div class="card-body">
+                    <textarea class="form-control" id="randomNumber" rows="8" placeholder="11 2 7 13 19 1 .."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <button id="gen_random" class="btn psBtn mt-3">Generate</button>
+        <button id="back_to_panel" class="btn psBtn mt-3" style="display:none;">Back</button>
+    </div>
+
+<footer class="bg-mc-light fixed-bottom ">
+    <div class="container d-flex">
+        <p class="flex-grow-1 m-0 pt-3 text-white">Developed by <a href="mailto:saad-loukili@hotmail.com" class="link-light">Saad Loukili</a></p>
+
+        <a href="https://github.com/SaadLoukili" target="_blank" class="pe-2 contact-bt">
+            <img src="./assets/img/github.png" width="32" alt="github">
+        </a>
+        <a href="https://profile.intra.42.fr/users/sloukili" target="_blank" class="contact-bt">
+            <img src="./assets/img/42.png" width="32"  alt="42">
+        </a>
+
+    </div>
+</footer>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/js/random.js"></script>
+</body>
+</html>

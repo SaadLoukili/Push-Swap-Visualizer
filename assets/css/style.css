@@ -1,0 +1,90 @@
+/*
+Primary : 631549; Hover : 701C54
+Danger  : 940A0A; Hover : a61313;
+*/
+
+body
+{
+    background: #F3F7F9!important;
+    padding-bottom: 80px;
+}
+
+.bg-mc-primary
+{
+    background-color: #631549;
+}
+
+.bg-mc-light
+{
+    background-color: #701C54;
+}
+
+.nav-button
+{
+    margin-left: 1px;
+    color:white;
+    padding: 20px 20px;
+    background: #751e58;
+    border-width: 0;
+
+}
+.nav-button:hover
+{
+    color:white;
+}
+.nav-button:active {
+    border-style: outset!important;
+    border-width: 0;
+    border-color: white!important;
+    outline: none!important;
+}
+
+.psBtn
+{
+    margin-left: 1px;
+    color:white;
+    padding: 14px 40px;
+    background: #751e58;
+    border-width: 0;
+}
+.psBtn:hover
+{
+    color:white;
+    background: #963776;
+}
+
+.form-control:focus {
+    border-color: #963776;
+    box-shadow: inset 0 0 0 #963776, 0 0 5px #963776;
+}
+
+.form-select:focus {
+    border-color: #963776;
+    box-shadow: inset 0 0 0 #963776, 0 0 5px #963776;
+}
+
+.card-header
+{
+    background: #963776;
+}
+
+.contact-bt
+{
+    padding: 15px 15px;
+}
+
+.contact-bt:hover
+{
+    background: #751e58;
+}
+
+.autobt{
+    margin-left: 5px;
+    padding: 0 20px;
+    height: 38px;
+}
+
+.nav-link.active{
+    background: #963776!important;
+    color:white!important;
+}
