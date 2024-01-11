@@ -18,16 +18,19 @@ function shuffleArray(array) {
 }
 function consecutive_numbers()
 {
+    var rs = "";
     var rand_min = parseInt($("#rand_min").val());
     var rand_max = parseInt($("#rand_max").val());
     var listnum = shuffleArray(gen_list(rand_min, rand_max));
     for(i=0;i<listnum.length;i++)
     {
-        $("#randomNumber").append(listnum[i] + " ");
+        rs += listnum[i] + " ";
     }
+    $("#randomNumber").val(rs);
 }
 function random_number()
 {
+    var rs = "";
     var rand_quantity = parseInt($("#rand_quantity").val());
     var czero = $("#rand_quantity").val().length;
     if (czero == 1)
@@ -35,13 +38,15 @@ function random_number()
     czero = Math.pow(10, (czero - 1)) * 9.9;
 
     var listnum = shuffleArray(gen_list(czero * -1, czero));
-    for(i=0;i<listnum.length;i++)
+    for(i=0;i<rand_quantity;i++)
     {
-        $("#randomNumber").append(listnum[i] + " ");
+        rs += listnum[i] + " ";
     }
+    $("#randomNumber").val(rs);
+
 }
 $("#gen_random").click(function (){
-    $("#randomNumber").text("");
+    $("#randomNumber").val("");
     if (type_rand == 1)
        consecutive_numbers();
    else
