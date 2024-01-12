@@ -21,6 +21,7 @@ body
 
 .nav-button
 {
+    width: 100%;
     margin-left: 1px;
     color:white;
     padding: 20px 20px;
@@ -32,7 +33,9 @@ body
 {
     color:white;
 }
-.nav-button:active {
+.nav-button.active {
+    background: #69134c !important;
+    color:white!important;
     border-style: outset!important;
     border-width: 0;
     border-color: white!important;
