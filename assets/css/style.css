@@ -88,3 +88,58 @@ body
     background: #963776!important;
     color:white!important;
 }
+
+.stack_node{
+    border-style: solid;
+    width: 100%;
+    height: 30px;
+    margin: 5px 0;
+    border-color: #701C54;
+    border-radius: 5px;
+    text-align: center;
+    color: #701C54;
+}
+
+.oprt{
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #343a40;
+}
+
+.oprt.active{
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #b95093 !important;
+    color: white!important;
+    padding: 10px 20px!important;
+    font-size: 20px;
+    color: #343a40;
+}
+
+.oprtBtn
+{
+    margin: 5px;
+    color:white;
+    width: 50%;
+    padding: 6px 0;
+    background: #751e58;
+    border-width: 0;
+}
+
+.oprtBtn:disabled
+{
+    background-color: #dfbad3;
+}
+
+.oprtBtn:hover
+{
+    color:white;
+    background: #963776;
+}
+
+.oprtHide
+{
+    background-color: transparent!important;
+    color: transparent!important;
+}

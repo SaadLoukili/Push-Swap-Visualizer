@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Swap Visualizer</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-mc-light navbar-dark p-0">
+    <div class="container">
+        <a href="index.html" class="navbar-brand py-3">Push Swap Visualizer</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#psnav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="psnav" >
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="index.html" class="btn nav-button">Home</a></li>
+                <li class="nav-item"><a href="stack_viewer.html" class="btn nav-button active">Stack Viewer</a></li>
+                <li class="nav-item"><a href="random.html" class="btn nav-button">Random Numbers</a></li>
+                <li class="nav-item"><a href="about.html" class="btn nav-button">About</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row" id="home_panel">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header text-white">
+                    Numbers
+                </div>
+                <div class="card-body">
+                    <select id="sp_numbers" class="form-select mb-3">
+                        <option value="0" selected>Auto Split</option>
+                        <option value="1">Split with comma</option>
+                        <option value="2">Split with space</option>
+                        <option value="3">Split with new line</option>
+                    </select>
+
+                    <textarea class="form-control" id="numberList" rows="8" placeholder="99 12 83 29 84 22 34 ..">10 3 9 2 4 6 8 1 7 5</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header text-white">
+                    Operations
+                </div>
+                <div class="card-body">
+                    <select id="sp_operations" class="form-select mb-3">
+                        <option value="0" selected>Auto Split</option>
+                        <option value="1">Split with comma</option>
+                        <option value="2">Split with space</option>
+                        <option value="3">Split with new line</option>
+                    </select>
+
+                    <textarea class="form-control" id="operationsList" rows="8">ra
+ra
+ra
+ra
+pb
+pb
+pb
+ra
+pb
+pb
+rb
+pb
+pb
+rb
+pb
+pb
+rb
+pb
+rb
+rb
+pa
+pa
+ra
+rrb
+pa
+pa
+rra
+pa
+pa
+ra
+pa
+rra
+pa
+pa
+pa</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center" id="vr_ps" style="display: none">
+        <div class="col-md-3 col-6">
+            <div class="card">
+                <div class="card-header text-white">
+                    Stack A
+                </div>
+                <div class="card-body">
+                    <div class="col-12" id="stack_a"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-6">
+            <div class="card">
+                <div class="card-header text-white">
+                    Stack B
+                </div>
+                <div class="card-body">
+                    <div class="col-12" id="stack_b"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-12">
+            <div class="card">
+                <div class="card-header text-white">
+                    Operations
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+                        <p id="op_b" class="oprt"></p>
+                        <p id="op_e" class="oprt active"></p>
+                        <p id="op_n" class="oprt"></p>
+                    </div>
+                    <div class="d-flex">
+                        <button id="opr_back" class="btn oprtBtn mt-3">Back</button>
+                        <button id="opr_next" class="btn oprtBtn mt-3">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button id="visualize" class="btn psBtn mt-3">View</button>
+        <button id="back_to_panel" class="btn psBtn mt-3" style="display:none;">Back</button>
+    </div>
+</div>
+
+<footer class="bg-mc-light fixed-bottom ">
+    <div class="container d-flex">
+        <p class="flex-grow-1 m-0 pt-3 text-white">Developed by <a href="mailto:saad-loukili@hotmail.com" class="link-light">Saad Loukili</a></p>
+
+        <a href="https://github.com/SaadLoukili" target="_blank" class="pe-2 contact-bt">
+            <img src="./assets/img/github.png" width="32" alt="github">
+        </a>
+        <a href="https://profile.intra.42.fr/users/sloukili" target="_blank" class="contact-bt">
+            <img src="./assets/img/42.png" width="32"  alt="42">
+        </a>
+    </div>
+</footer>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/js/stack_viewer.js"></script>
+</body>
+</html>
