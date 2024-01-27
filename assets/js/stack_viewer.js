@@ -261,6 +261,7 @@ $("#visualize").click(function ()
     set_opview(0);
     opin = 0;
     add_to_stack_a();
+    checknmv();
 });
 
 $("#opr_next").click(function() {
@@ -280,4 +281,46 @@ $("#back_to_panel").click(function(){
     $("#vr_ps").hide();
     $("#visualize").show();
     $("#home_panel").show();
+});
+
+
+$("#opr_back_n").click(function() {
+    var mv_n = parseInt($("#moveby").val());
+    while (mv_n > 0)
+    {
+        opin--;
+        do_opr_rev(operationsList[opin]);
+        set_opview(opin);
+        mv_n--;
+    }
+    checknmv();
+});
+
+$("#opr_next_n").click(function() {
+    var mv_n = parseInt($("#moveby").val());
+    while (mv_n > 0)
+    {
+        do_opr(operationsList[opin]);
+        opin++;
+        set_opview(opin);
+        mv_n--;
+    }
+    checknmv();
+});
+
+function checknmv()
+{
+    var mv_n = parseInt($("#moveby").val());
+    if (mv_n > opin)
+        $("#opr_back_n").attr("disabled", true);
+    else
+        $("#opr_back_n").attr("disabled", false);
+    if (mv_n + opin > operationsList.length)
+        $("#opr_next_n").attr("disabled", true);
+    else
+        $("#opr_next_n").attr("disabled", false);
+}
+
+$("#moveby").on("change", function(){
+    checknmv();
 });
