@@ -85,6 +85,7 @@ body
     margin-left: 5px;
     padding: 0 20px;
     height: 38px;
+    min-width: 150px;
 }
 
 .nav-link.active{
@@ -107,6 +108,7 @@ body
     background-color: #f2f2f2;
     border-radius: 10px;
     padding: 10px 15px;
+    margin-bottom: 0px;
     color: #343a40;
 }
 
@@ -124,10 +126,19 @@ body
 {
     margin: 5px;
     color:white;
-    width: 50%;
+    width: 100px;
+    height: 39px;
     padding: 6px 0;
     background: #751e58;
     border-width: 0;
+}
+
+.speedinp
+{
+    margin: 0px 5px 5px 5px;
+    width: 200px;
+    height: 39px;
+    padding: 6px 0;
 }
 
 .oprtBtn:disabled

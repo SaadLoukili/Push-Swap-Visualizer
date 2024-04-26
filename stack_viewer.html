@@ -11,6 +11,7 @@
     <link rel="icon" type="image/x-icon" href="./favicon.png">
 </head>
 <body>
+
 <nav class="navbar navbar-expand-md bg-mc-light navbar-dark p-0">
     <div class="container">
         <a href="index.html" class="navbar-brand py-3">Push Swap Visualizer</a>
@@ -27,6 +28,22 @@
     </div>
 </nav>
 
+<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reportModalLabel">Push Swap Report</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="reportModalBody">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container mt-5">
     <div class="row" id="home_panel">
         <div class="col-6">
@@ -42,13 +59,14 @@
                         <option value="3">Split with new line</option>
                     </select>
 
-                    <textarea class="form-control" id="numberList" rows="8" placeholder="99 12 83 29 84 22 34 .."></textarea>
+                    <textarea class="form-control" id="numbersList" rows="6" placeholder="99 12 83 29 84 22 34 .."></textarea>
+                    <input class="form-control mt-2" id="numbersFile" type="file">
                 </div>
             </div>
         </div>
         <div class="col-6">
             <div class="card">
-                <div class="card-header text-white">
+                <div class="card-header text-white" id="operationsTitle">
                     Operations
                 </div>
                 <div class="card-body">
@@ -59,15 +77,72 @@
                         <option value="3">Split with new line</option>
                     </select>
 
-                    <textarea class="form-control" id="operationsList" rows="8"></textarea>
+                    <textarea class="form-control" id="operationsList" rows="6" placeholder="ra&#10;pb&#10;sa.."></textarea>
+                    <input class="form-control mt-2" id="operationsFile" type="file">
                 </div>
             </div>
         </div>
     </div>
-    <div class="row justify-content-md-center" id="vr_ps" style="display: none">
-        <div class="col-md-3 col-6">
+
+    <div class="row mb" id="vr_ps" style="display: none">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <div class="card">
+                        <div class="card-header text-white">
+                            Player
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1 input-group speedinp">
+                                        <span class="input-group-text">Delay</span>
+                                        <input type="number" id="speed_int" class="form-control" value="50" min="0" placeholder="50">
+                                    </div>
+                                </div>
+                                <button id="ps_player" class="btn oprtBtn bg-success">Start</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <div class="card">
+                        <div class="card-header text-white">
+                            Operations
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <p id="op_b" class="oprt">ra</p>
+                                <p id="op_e" class="oprt active">ra</p>
+                                <p id="op_n" class="oprt">pb</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <div class="card">
+                        <div class="card-header text-white">
+                            Player
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1 input-group speedinp">
+                                        <span class="input-group-text">Move</span>
+                                        <input type="number" id="move_int" class="form-control" value="1" min="1"  placeholder="1">
+                                    </div>
+                                </div>
+                                <button id="ps_back" class="btn oprtBtn">Back</button>
+                                <button id="ps_next" class="btn oprtBtn">next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
             <div class="card">
-                <div class="card-header text-white">
+                <div class="card-header text-white" id="stackATitle">
                     Stack A
                 </div>
                 <div class="card-body">
@@ -76,9 +151,9 @@
             </div>
         </div>
 
-        <div class="col-md-3 col-6">
+        <div class="col-6">
             <div class="card">
-                <div class="card-header text-white">
+                <div class="card-header text-white" id="stackBTitle">
                     Stack B
                 </div>
                 <div class="card-body">
@@ -86,37 +161,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-12">
-            <div class="card">
-                <div class="card-header text-white">
-                    Operations
-                </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-center">
-                        <p id="op_b" class="oprt"></p>
-                        <p id="op_e" class="oprt active"></p>
-                        <p id="op_n" class="oprt"></p>
-                    </div>
-                    <div class="d-flex">
-                        <button id="opr_back" class="btn oprtBtn mt-3">Back</button>
-                        <button id="opr_next" class="btn oprtBtn mt-3">Next</button>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label for="moveby">Move By</label>
-                        <input class="form-control" id="moveby" type="number" value="1" min="1">
-                    </div>
-                    <div class="d-flex">
-                        <button id="opr_back_n" class="btn oprtBtn mt-3">Back</button>
-                        <button id="opr_next_n" class="btn oprtBtn mt-3">Next</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
     <div class="d-flex justify-content-center">
-        <button id="visualize" class="btn psBtn mt-3">View</button>
-        <button id="back_to_panel" class="btn psBtn mt-3" style="display:none;">Back</button>
+        <button id="visualize" class="btn psBtn mt-3 w-100">View</button>
+        <button id="back_to_panel" class="btn psBtn me-2 mt-3" style="display:none;">Back</button>
+        <button id="gen_report" class="btn psBtn mt-3" style="display:none;">Generate Report</button>
     </div>
 </div>
 
@@ -134,7 +184,13 @@
 </footer>
 
 <script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/jquery-3.7.1.min.js"></script>
-<script src="assets/js/stack_viewer.js"></script>
+<script src="assets/js/checker.min.js"></script>
+<script src="assets/js/push_swap.min.js"></script>
+<script>
+    document.getElementById('visualize').onclick = function ()
+    {
+        psVisualize(2);
+    }
+</script>
 </body>
 </html>
